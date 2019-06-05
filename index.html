@@ -7,6 +7,14 @@
     <title>Wicelica</title>
 </head>
 <body>
-    
+    <script>
+    var words = ["один","два","три"];
+    var word = words[Math.floor(Math.random() * words.length)];
+    var answerArray = [];
+    for (var j = 0; j < word.length; j++) {
+        answerArray[j] = "_";
+    }
+    var remainingLetters = word.length;
+    </script>
 </body>
 </html>
