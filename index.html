@@ -1,20 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wicelica</title>
 </head>
+
 <body>
     <script>
-    var words = ["один","два","три"];
-    var word = words[Math.floor(Math.random() * words.length)];
-    var answerArray = [];
-    for (var j = 0; j < word.length; j++) {
-        answerArray[j] = "_";
-    }
-    var remainingLetters = word.length;
+        var words = ["один","два","три","кінь","запальничка","кіт","портфель","зарядка","вода","кабель","камінь","пакет","книга","рослина","вікно","дім","кулька","комод","чайник","слово","горобець","цукерка","шоколадка","чашка","гра","миша","клавіатура","помилка","лист","словник","фото","ковдра","простирадло","квітка","горнятко","жаба","собака","нахаба","панда","ледар","абореген","популяція","підвіконня","слайм","гіпербула","паралелепіпед","чупакабра","наука","швенза","цирюльня","телефон"];
+        var word = words[Math.floor(Math.random() * words.length)];
+        let additionalPopitki = 5;
+        var popitki = word.length + additionalPopitki;
+        var answerArray = [];
+        for (var j = 0; j < word.length; j++) {
+            answerArray[j] = "_";
+        }
+        var remainingLetters = word.length;
+        while (remainingLetters > 0 && popitki > 0) {
+            alert(answerArray.join(" "));
+            var guess = prompt("Вгадайте букву, або нажміть Отмена для виходу з гри.");
+            if (guess === null) {
+                popitki = 0;
+                break;
+            } else if (guess.length !== 1) {
+                alert("Будь ласка, введіть одну букву.");
+            } else {
+                guess = guess.toLowerCase();
+                var isGuess = false;
+                for (var j = 0; j < word.length; j++) {
+                    if (word[j] === guess && answerArray[j] == "_") {
+                        answerArray[j] = guess;
+                        remainingLetters--;
+                        isGuess = true;
+
+                    }
+                }
+            }
+            if (!isGuess){
+                popitki--;
+            }
+        }
+        if (popitki <= 0) {
+            alert("Ви програли");
+        } else {
+            alert(answerArray.join(" "));
+            var randomHappyWords = ["Прекрасно", "Чудово", "Неперевершено"];
+            var f = Math.floor(Math.random() * randomHappyWords.length);
+            alert(randomHappyWords[f] + "! Було загадано слово " + '"' + word + '"');
+            // alert(randomHappyWords[f] + "! Було загадано слово \"" + word + "\"");
+            // alert(randomHappyWords[f] + '! Було загадано слово "' + word + '"');
+            // alert(`${randomHappyWords[f]}! Було загадано слово "${word}"`);
+        }
     </script>
 </body>
+
 </html>
