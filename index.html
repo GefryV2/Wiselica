@@ -13,6 +13,8 @@
         let pickWord = function (wordsArray) {
             return wordsArray[Math.floor(Math.random() * wordsArray.length)];
         };
+        // Вибирає випадкове слово
+
         let setupAnswerArray = function (word) {
             let empty = [];
             for (let j = 0; j < word.length; j++) {
@@ -20,12 +22,18 @@
             };
             return empty;
         };
+        // Повертає кінцевий масив для заданого слова Word
+
         let showPlayerProgress = function (answerArray) {
             alert(answerArray.join(" "));
         };
+        // За допомогою alert відображає поточний стан гри
+        
         let getGuess = function () {
             return prompt("Вгадайте букву, або нажміть Отмена для виходу з гри.");
         };
+        // Запрошує відповідь гравця за допомогою prompt
+
         let updateGameState = function (guess, word, answerArray) {
             // Обновляет answerArray согласно ответу игрока (guess)
             // возвращает число, обозначающее, сколько раз буква guess
@@ -41,6 +49,7 @@
             }
             return guessCount;
         };
+
         let showAnswerAndCongratulatePlayer = function (answerArray) {
             // С помощью alert показывает игроку отгаданное слово
             // и поздравляет его с победой
@@ -55,6 +64,7 @@
                 // alert(`${pickWord(randomHappyWords)}! Було загадано слово "${word}"`);
             }
         };
+        
         let words = ["один", "два", "три", "кінь", "запальничка", "кіт", "портфель", "зарядка", "вода", "кабель", "камінь", "пакет", "книга", "рослина", "вікно", "дім", "кулька", "комод", "чайник", "слово", "горобець", "цукерка", "шоколадка", "чашка", "гра", "миша", "клавіатура", "помилка", "лист", "словник", "фото", "ковдра", "простирадло", "квітка", "горнятко", "жаба", "собака", "нахаба", "панда", "ледар", "абореген", "популяція", "підвіконня", "слайм", "гіпербула", "паралелепіпед", "чупакабра", "наука", "швенза", "цирюльня", "телефон"];
         let word = pickWord(words);
         let additionalPopitki = 5;
